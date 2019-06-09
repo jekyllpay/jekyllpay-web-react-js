@@ -17,12 +17,9 @@ notifications:
   slack: 
     template:
       - "Build *<%{build_url}|#%{build_number}> (<%{compare_url}|%{commit}>) of %{repository_slug}@%{branch}*"
-      - "Branch: *%{branch}*"
-      - "Message: *%{commit_message}*"
+      - "Branch: *%{branch}* Commit: *%{commit}* Message: *%{commit_message}*"
       - "Author:  *%{author}*"
-      - "Commit: *%{commit}*"
-      - "Build Status: *%{result}* "
-      - "Build Duration: *%{duration}* "
+      - "Build Status: *%{result}* Duration: *%{duration}* "
     rooms:
       - jekyllpay:ayUfNRYKnjoK3WsJle9Ec0YI
     on_success: always

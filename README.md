@@ -2,6 +2,7 @@
 
 #### Badges 
 
+[![Build Status](https://travis-ci.org/jekyllpay/jekyllpay-web-react-js.svg?branch=master)](https://travis-ci.org/jekyllpay/jekyllpay-web-react-js)
 
 #### Project setup
 ```bash

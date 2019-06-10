@@ -1,25 +1,89 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import logo from './assets/logo.png';
+import {
+  Container,
+  Divider,
+  Dropdown,
+  Grid,
+  Header,
+  Icon,
+  Image,
+  List,
+  Menu,
+  Segment,
+  Visibility,
+} from 'semantic-ui-react';
+
+const menuStyle = {
+  border: 'none',
+  borderRadius: 0,
+  boxShadow: 'none',
+  margin: 0,
+  transition: 'box-shadow 0.5s ease, padding 0.5s ease',
+}
+
+const fixedMenuStyle = {
+  backgroundColor: '#fff',
+  border: '1px solid #ddd',
+  boxShadow: '0px 3px 5px rgba(0, 0, 0, 0.2)',
+}
 
 class App extends Component {
+
+  state = {
+    menuFixed: false,
+    overlayFixed: false,
+  }
+
+
+
   render() {
+
+    const { menuFixed, overlayFixed, overlayRect } = this.state
+  
+
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+        <Visibility
+          onBottomPassed={this.stickTopMenu}
+          onBottomVisible={this.unStickTopMenu}
+          once={false}
+        >
+          <Menu
+            borderless
+            fixed={menuFixed ? 'top' : undefined}
+            style={menuFixed ? fixedMenuStyle : menuStyle}
           >
-            Learn React
-          </a>
-        </header>
+            <Container text>
+              <Menu.Item onClick={ ()=> console.log('go to homepage')}>
+                <Image size='tiny' src={logo} />
+              </Menu.Item>
+              <Menu.Item header>Jekyll Pay</Menu.Item>
+              <Menu.Item header as='a'>Pricing</Menu.Item>
+              <Menu.Item as='a'>Articles</Menu.Item>
+
+              <Menu.Menu position='right'>
+                <Dropdown text='More' pointing className='link item'>
+                  <Dropdown.Menu>
+                    <Dropdown.Item>List Item</Dropdown.Item>
+                    <Dropdown.Item>List Item</Dropdown.Item>
+                    <Dropdown.Divider />
+                    <Dropdown.Header>Header Item</Dropdown.Header>
+                    <Dropdown.Item>
+                      <i className='dropdown icon' />
+                      <span className='text'>Submenu</span>
+                      <Dropdown.Menu>
+                        <Dropdown.Item>List Item</Dropdown.Item>
+                        <Dropdown.Item>List Item</Dropdown.Item>
+                      </Dropdown.Menu>
+                    </Dropdown.Item>
+                    <Dropdown.Item>List Item</Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Menu.Menu>
+            </Container>
+          </Menu>
+        </Visibility>
       </div>
     );
   }

@@ -9,7 +9,7 @@ branches:
 install:
   - yarn install
 script:
-  - CI=fasle yarn build
+  - CI=false yarn build
 
 notifications:
   email:

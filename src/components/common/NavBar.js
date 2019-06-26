@@ -1,28 +1,26 @@
-import React, {Component} from 'react';
-import logo from '../../assets/logo.png';
-import { AppBar,Toolbar, Grid, Avatar, Typography } from '@material-ui/core';
-  
+import React, { Component } from "react";
+import logo from "../../assets/logo.png";
+import { AppBar, Toolbar, Grid, Avatar, Typography } from "@material-ui/core";
+
 class NavBar extends Component {
-
-render() {
-    return ( 
-    <AppBar>
+  render() {
+    return (
+      <AppBar>
         <Toolbar variant="dense">
-            <Grid container alignContent="flex-start" alignItems="center" spacing={1}>
-                <Grid item>
-                    <Avatar alt="logo" src={logo}  />
-                </Grid>
-                <Grid item>
-                    <Typography variant="subtitle1" noWrap>
-                        Jekyll Pay
-                    </Typography>
-                </Grid>
+          <Grid container alignContent="flex-start" alignItems="center" spacing={1}>
+            <Grid item>
+              <Avatar alt="logo" src={logo} />
             </Grid>
+            <Grid item>
+              <Typography variant="subtitle1" noWrap>
+                Jekyll Pay
+              </Typography>
+            </Grid>
+          </Grid>
         </Toolbar>
-    </AppBar>
-    )
+      </AppBar>
+    );
+  }
 }
 
-}
-
-export default NavBar
+export default NavBar;
